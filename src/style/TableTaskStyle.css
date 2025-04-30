@@ -88,8 +88,5 @@ h1 {
   .buttonDeleteTask:hover {
     background-color: #d32f2f;
   }
-  .trCenterItem{
-    display: flex;
-    align-items: center;
-  }
+
   
