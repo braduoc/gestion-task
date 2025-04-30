@@ -4,7 +4,7 @@ Una aplicación web simple para gestionar tareas desarrollada con **React.js** y
 Permite agregar tareas, marcarlas como completadas o pendientes y eliminarlas de la lista.
 
 🔗 **Despliegue en Netlify**:  
-👉 [https://aplicacion-clima-react-brando.netlify.app/](https://app-gestion-tareas-brandoduoc.netlify.app/)
+👉 [[https://aplicacion-clima-react-brando.netlify.app/](https://app-gestion-tareas-brandoduoc.netlify.app/)
 
 ---
 
@@ -27,7 +27,7 @@ Permite agregar tareas, marcarlas como completadas o pendientes y eliminarlas de
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/tuusuario/task-manager-react.git
+git clone https://github.com/braduoc/task-manager-react.git
 ```
 Instala las dependencias:
 
