@@ -17,9 +17,10 @@ Permite agregar tareas, marcarlas como completadas o pendientes y eliminarlas de
 - Vite
 - CSS
 
-  ## 🖼️ Vista Previa
+## 🖼️ Vista Previa
 
 https://app-gestion-tareas-brandoduoc.netlify.app/
+
 
 ## 📦 Instalación y Ejecución
 
