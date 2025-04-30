@@ -1,0 +1,95 @@
+h1 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 2rem;
+    color: #333;
+  }
+  
+  table {
+    width: 80%;
+    margin: 1.5rem auto;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  
+  th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  td {
+    color: #555;
+  }
+  .completada {
+    font-weight: bold;
+    color: #28a745; 
+  }
+  
+  .incompleta {
+    font-weight: bold;
+    color: #dc3545; 
+  }
+  
+
+  button{
+    margin-left: 5px;
+  }
+  
+  .buttonCompletTask {
+    background-color: #4CAF50; /* verde suave */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .buttonCompletTask:hover {
+    background-color: #45a049;
+  }
+  
+  .buttonInCompletTask {
+    background-color: #FFD700; /* amarillo dorado */
+    color: black;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .buttonInCompletTask:hover {
+    background-color: #e6c200;
+  }
+  
+  .buttonDeleteTask {
+    background-color: #F44336; /* rojo suave */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .buttonDeleteTask:hover {
+    background-color: #d32f2f;
+  }
+  .trCenterItem{
+    display: flex;
+    align-items: center;
+  }
+  
