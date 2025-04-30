@@ -1,4 +1,4 @@
-# 📝 Gestion-Task 
+# 📝 Manager-Task 
 
 Una aplicación web simple para gestionar tareas desarrollada con **React.js** y **Vite**.  
 Permite agregar tareas, marcarlas como completadas o pendientes y eliminarlas de la lista.
