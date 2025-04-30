@@ -3,6 +3,11 @@
 Una aplicación web simple para gestionar tareas desarrollada con **React.js** y **Vite**.  
 Permite agregar tareas, marcarlas como completadas o pendientes y eliminarlas de la lista.
 
+🔗 **Despliegue en Netlify**:  
+👉 [https://aplicacion-clima-react-brando.netlify.app/](https://app-gestion-tareas-brandoduoc.netlify.app/)
+
+---
+
 ## 🚀 Características
 
 - Añadir nuevas tareas
@@ -16,11 +21,6 @@ Permite agregar tareas, marcarlas como completadas o pendientes y eliminarlas de
 - React.js
 - Vite
 - CSS
-
-## 🖼️ Vista Previa
-
-https://app-gestion-tareas-brandoduoc.netlify.app/
-
 
 ## 📦 Instalación y Ejecución
 
