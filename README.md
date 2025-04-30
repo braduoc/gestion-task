@@ -23,3 +23,14 @@ Permite agregar tareas, marcarlas como completadas o pendientes y eliminarlas de
 
 ```bash
 git clone https://github.com/tuusuario/task-manager-react.git
+
+Instala las dependencias:
+
+```bash
+npm install
+
+Ejecuta la aplicación en modo desarrollo:
+
+```bash
+
+npm run dev
