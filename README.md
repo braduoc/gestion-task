@@ -1,12 +1,25 @@
-# React + Vite
+# 📝 Gestion-Task 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una aplicación web simple para gestionar tareas desarrollada con **React.js** y **Vite**.  
+Permite agregar tareas, marcarlas como completadas o pendientes y eliminarlas de la lista.
 
-Currently, two official plugins are available:
+## 🚀 Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Añadir nuevas tareas
+- Editar el estado de una tarea: Completada o Por realizar
+- Eliminar tareas
+- Interfaz rápida y moderna con React + Vite
 
-## Expanding the ESLint configuration
+  
+## 🛠️ Tecnologías Utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React.js
+- Vite
+- CSS
+
+## 📦 Instalación y Ejecución
+
+1. Clona el repositorio:
+
+```bash
+git clone https://github.com/tuusuario/task-manager-react.git
