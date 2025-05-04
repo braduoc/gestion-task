@@ -23,6 +23,7 @@ export const FormAddTask = ({ sendInfo }) => {
         setNameTask('');
         setError('');
     };
+    
 
     return (
         <>

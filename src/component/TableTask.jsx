@@ -1,80 +1,95 @@
-import React, { useState } from 'react'
-import { FormAddTask } from './FormAddTask'
-import Task from '../Models/task'
-import '../style/TableTaskStyle.css'
+import React, { useReducer, useEffect, useState } from 'react';
+import { FormAddTask } from './FormAddTask';
+import { SearchTask } from './SearchTask';
+import '../style/TableTaskStyle.css';
+
+// Reducer
+const reduceTask = (state, action) => {
+  switch (action.type) {
+    case '[ACTION] add Task':
+      return [...state, action.payload];
+    case '[ACTION] set Complet Task':
+      return state.map(task =>
+        task.id === action.payload ? { ...task, completed: true } : task
+      );
+    case '[ACTION] set In Complet Task':
+      return state.map(task =>
+        task.id === action.payload ? { ...task, completed: false } : task
+      );
+    case '[ACTION] deleteTask Task':
+      return state.filter(task => task.id !== action.payload);
+    default:
+      return state;
+  }
+};
 
 export const TableTask = () => {
-    const [arryTask, setArryTask] = useState([]);
+  const [state, dispatch] = useReducer(reduceTask, []);
+  const [searchTask, setSearchTask] = useState('');
+  const [filteredTasks, setFilteredTasks] = useState([]);
 
-    const getInfo = (nameTask) => {
-        const newTask = new Task(
-            arryTask.length + 1,
-            nameTask,
-            false
-        );
+  useEffect(() => {
+    const results = state.filter(item =>
+      item.id.toString().toLowerCase().includes(searchTask.toLowerCase()) ||
+      item.name.toLowerCase().includes(searchTask.toLowerCase())
+    );
+    setFilteredTasks(results);
+  }, [searchTask, state]);
 
-        setArryTask([...arryTask, newTask]);
+  const getInfoFromFormAddTask = (taskName) => {
+    const newTask = {
+      id: Date.now(),
+      name: taskName,
+      completed: false
     };
-    const setCompletTask = (id) => {
-        setArryTask(prevTasks =>
-            prevTasks.map(task =>
-                task.id === id ? { ...task, completed: true } : task
-            )
-        );
-        
-    };
+    dispatch({ type: '[ACTION] add Task', payload: newTask });
+  };
 
-    const setInCompletTask = (id) => {
-        setArryTask(prevTasks =>
-            prevTasks.map(task =>
-                task.id === id ? { ...task, completed: false } : task
-            )
-        );
-    };
-    const deleteTask = (id) => {
-        setArryTask(prevTasks => prevTasks.filter(task => task.id !== id));
-    };
-    
+  const getInfoFromSearchTask = (text) => {
+    setSearchTask(text);
+  };
 
-    return (
-        <>
-            <FormAddTask sendInfo={(nameTask) => getInfo(nameTask)}></FormAddTask>
-            <h1>Tabla Tareas</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Estado</th>
-                        <th>Completada</th>
-                        <th>Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {arryTask.length < 1 ? (
-                        <tr >
-                            <td ></td>
-                            <td >No hay tareas añadidas aun</td>
-                        </tr>
-                    ) :                    
-                    arryTask.map((item) => (
-                        <tr key={item.id}>
-                            <td>{item.id}</td>
-                            <td>{item.name}</td>
-                            <td className={item.completed ? 'completada' : 'incompleta'}> {item.completed ? 'Completada' : 'Por realizar'}</td>
-                            <td>
-                                <button className='buttonCompletTask' onClick={() => setCompletTask(item.id)}>Sí</button>
-                                <button className='buttonInCompletTask' onClick={() => setInCompletTask(item.id)}>No</button>
-                            </td>
-                            <td>
-                            <button className='buttonDeleteTask' onClick={() => deleteTask(item.id)}>Eliminar</button>
-                            </td>
-                        </tr>
+  return (
+    <>
+      <FormAddTask sendInfo={getInfoFromFormAddTask} />
+      <SearchTask sendInfo={getInfoFromSearchTask} />
 
-                    ))}
-                </tbody>
-            </table>
-            
-        </>
-    )
-}
+      <h1>Tabla Tareas</h1>
+      <table className='table'>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Completada</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredTasks.length === 0 ? (
+            <tr>
+              <td colSpan="5">No hay tareas añadidas o ninguna coincide</td>
+            </tr>
+          ) : (
+            filteredTasks.map((item) => (
+              <tr key={item.id}>
+                <td>{item.id}</td>
+                <td>{item.name}</td>
+                <td className={item.completed ? 'completada' : 'incompleta'}>
+                  {item.completed ? 'Completada' : 'Por realizar'}
+                </td>
+                <td>
+                  <button className='buttonCompletTask' onClick={() => dispatch({ type: '[ACTION] set Complet Task', payload: item.id })}>Sí</button>
+                  <button className='buttonInCompletTask' onClick={() => dispatch({ type: '[ACTION] set In Complet Task', payload: item.id })}>No</button>
+                </td>
+                <td>
+                  <button className='buttonDeleteTask' onClick={() => dispatch({ type: '[ACTION] deleteTask Task', payload: item.id })}>Eliminar</button>
+                </td>
+              </tr>
+            ))
+          )}
+        </tbody>
+      </table>
+    </>
+  );
+};
